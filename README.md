@@ -1,6 +1,6 @@
 After clone,
 
-local: fireabase serve
+local: firebase serve
 
 production: firebase deploy
 
