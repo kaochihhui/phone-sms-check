@@ -1,8 +1,8 @@
 After clone,
 
-local: firebase serve
+local: `firebase serve`
 
-production: firebase deploy
+production: `firebase deploy`
 
 ---
 
