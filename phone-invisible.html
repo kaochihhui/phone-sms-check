@@ -110,7 +110,7 @@ limitations under the License.
 <script src="/__/firebase/init.js"></script>
 
 <script type="text/javascript">
-
+let passToken="";
   /**
    * Set up UI event listeners and registering Firebase auth listeners.
    */
@@ -191,6 +191,14 @@ limitations under the License.
     }
   }
 
+  // function sendData(data) {
+  //   if (window.originalPostMessage) {
+  //     window.postMessage(data);
+  //   } else {
+  //     throw Error('postMessage接口还未注入');
+  //   }
+  // }
+
   /**
    * Function called when clicking the "Verify Code" button.
    */
@@ -201,6 +209,14 @@ limitations under the License.
       updateVerifyCodeButtonUI();
       var code = getCodeFromUserInput();
       confirmationResult.confirm(code).then(function (result) {
+        window.uid = result.user.uid;
+        passToken = result.user.uid;
+        console.log(`passToken: ${passToken}`);
+        // sendData(passToken);
+        window.location = ('srpconsole://token/'+passToken);
+        
+        /** ------------ **/
+        
         // User signed in successfully.
         var user = result.user;
         window.verifyingCode = false;
