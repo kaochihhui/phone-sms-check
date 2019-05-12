@@ -1,3 +1,13 @@
+After clone,
+
+local: `firebase serve`
+
+production: `firebase deploy`
+
+---
+
+
+
 Firebase Auth Quickstarts
 =============================
 
