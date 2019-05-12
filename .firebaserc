@@ -1,5 +1,6 @@
 {
   "projects": {
-    "no": "phone-sms-check"
+    "no": "phone-sms-check",
+    "staging": "my-fuck-awesome-project"
   }
 }
