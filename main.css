@@ -27,6 +27,7 @@ li a {
 }
 .mdl-card {
   overflow: visible;
+  background: transparent;
 }
 .grecaptcha-logo {
   background-color: white;
@@ -37,6 +38,9 @@ li a {
 }
 .mdl-layout__header-row {
   padding: 0;
+}
+.mdl-button{
+  width: 85px;
 }
 .quickstart-user-details-container, .user-details-container {
   margin-top: 20px;
@@ -66,18 +70,39 @@ h3 {
   margin-top: 10px;
   margin-bottom: 20px;
 }
-#verify-code-button, #cancel-verify-code-button {
-  margin-left: 20px;
+#verify-code-button { /* #cancel-verify-code-button */
+  /* margin-left: 20px; */
 }
 #sign-out-button {
   display: none;
 }
 #sign-in-card {
   z-index: 2;
+  width: 330px;
 }
 form{
   display: flex;
 }
 .none{
   display: none !important;
+}
+#codeSection{
+  width: 200px;
+}
+#phoneSection{
+  width: 200px;
+  /* margin-right: 20px; */
+}
+#sign-in-button{
+  margin-left: 4px;
+}
+#sign-out-button{
+  width: 100px;
+}
+.mdl-cell{
+  margin: 0;
+  width: auto;
+}
+.grecaptcha-badge{
+  visibility: hidden;
 }
