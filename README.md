@@ -4,6 +4,8 @@ local: `firebase serve`
 
 production: `firebase deploy`
 
+[Original Firebase Auth document](https://github.com/firebase/quickstart-js/tree/master/auth)
+
 ---
 
 
