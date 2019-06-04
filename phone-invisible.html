@@ -110,6 +110,11 @@ limitations under the License.
 <script src="/__/firebase/init.js"></script>
 
 <script type="text/javascript">
+  document.addEventListener("message", ({ data }) => {
+        data = JSON.parse(data);
+        // if (data.content) article.setContent(data.content, data.index);
+        // if (data.style) article.style = data.style;
+    });
 let passToken="";
   /**
    * Set up UI event listeners and registering Firebase auth listeners.
@@ -134,6 +139,7 @@ let passToken="";
       updateSignedInUserStatusUI();
       updateVerificationCodeFormUI();
     });
+  
 
     // Event bindings.
     document.getElementById('sign-out-button').addEventListener('click', onSignOutClick);
@@ -211,9 +217,20 @@ let passToken="";
       confirmationResult.confirm(code).then(function (result) {
         window.uid = result.user.uid;
         passToken = result.user.uid;
-        console.log(`passToken: ${passToken}`);
+        console.log(`Token: ${passToken}`);
+        var str = {"Token":`${passToken}`,}
         // sendData(passToken);
-        window.location = ('srpconsole://token/'+passToken);
+        var data_Token = JSON.stringify(str)
+        console.log(data_Token);
+
+        // if (data_Token != ''){
+        //   postMessage(data_Token);
+        // };
+        if (passToken != ''){
+          postMessage(passToken);
+        };
+
+        // window.location = ('srpconsole://token/'+passToken);
         
         /** ------------ **/
         
@@ -243,6 +260,7 @@ let passToken="";
     updateVerificationCodeFormUI();
     updateSignInFormUI();
   }
+
 
   /**
    * Signs out the user when the sign-out button is clicked.

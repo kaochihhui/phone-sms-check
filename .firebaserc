@@ -1,6 +1,7 @@
 {
   "projects": {
     "no": "phone-sms-check",
-    "staging": "my-fuck-awesome-project"
+    "staging": "my-fuck-awesome-project",
+    "default": "my-fuck-awesome-project"
   }
 }
