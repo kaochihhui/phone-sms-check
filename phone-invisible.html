@@ -55,9 +55,10 @@ limitations under the License.
           <form id="sign-in-form" action="#">
             <!-- Input to enter the phone number -->
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" id="phoneSection">
-              <input class="mdl-textfield__input" type="text" pattern="\+[0-9\s\-\(\)]+" id="phone-number">
-              <label class="mdl-textfield__label" for="phone-number">Enter your phone number</label>
-              <span class="mdl-textfield__error">Input is not an international phone number!</span>
+              <!-- <input class="mdl-textfield__input" type="text" pattern="\+[0-9\s\-\(\)]+" id="phone-number"> -->
+              <input class="mdl-textfield__input" type="text" pattern="09\d{2}-?\d{3}-?\d{3}" id="phone-number">
+              <label class="mdl-textfield__label" for="phone-number">請輸入手機號碼</label>
+              <span class="mdl-textfield__error">確保輸入的號碼為開頭是"09"及共10位數字</span>
             </div>
 
             <!-- Sign-in button -->
@@ -174,6 +175,8 @@ let passToken="";
       window.signingIn = true;
       updateSignInButtonUI();
       var phoneNumber = getPhoneNumberFromUserInput();
+      phoneNumber = '+886' + phoneNumber.slice(1,10);
+      console.log(phoneNumber);
       var appVerifier = window.recaptchaVerifier;
       firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
           .then(function (confirmationResult) {
@@ -287,7 +290,8 @@ let passToken="";
    * Returns true if the phone number is valid.
    */
   function isPhoneNumberValid() {
-    var pattern = /^\+[0-9\s\-\(\)]+$/;
+    // var pattern = /^\+[0-9\s\-\(\)]+$/;
+    var pattern = /^09\d{2}-?\d{3}-?\d{3}$/;
     var phoneNumber = getPhoneNumberFromUserInput();
     return phoneNumber.search(pattern) !== -1;
   }
